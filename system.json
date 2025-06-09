@@ -1,0 +1,46 @@
+{
+  "id": "commando-rpg",
+  "title": "Commando RPG",
+  "description": "A tactical military RPG system featuring Physical/Mental/Social attributes with Force/Finesse/Resilience specializations.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "Your Name",
+      "email": "your.email@example.com"
+    }
+  ],
+  "esmodules": [
+    "module/commando-rpg.mjs"
+  ],
+  "styles": [
+    "styles/commando-rpg.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "stamina",
+  "socket": true,
+  "initiative": "1d20 + @attributes.coordination.value",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "media": [
+    {
+      "type": "icon",
+      "url": "assets/icons/commando-icon.png"
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "biography": "",
+        "notes": ""
+      },
+      "attributes": {
+        "attributes": {
+          "might": {
+            "value": 1,
+            "max": 10,
+            "category": "physical"
+          },
+          "coordination": {
+            "value": 1,
+            "max": 10,
+            "category": "physical"
+          },
+          "endurance": {
+            "value": 1,
+            "max": 10,
+            "category": "physical"
+          },
+          "intellect": {
+            "value": 1,
+            "max": 10,
+            "category": "mental"
+          },
+          "guile": {
+            "value": 1,
+            "max": 10,
+            "category": "mental"
+          },
+          "guts": {
+            "value": 1,
+            "max": 10,
+            "category": "mental"
+          },
+          "bearing": {
+            "value": 1,
+            "max": 10,
+            "category": "social"
+          },
+          "charm": {
+            "value": 1,
+            "max": 10,
+            "category": "social"
+          },
+          "composure": {
+            "value": 1,
+            "max": 10,
+            "category": "social"
+          }
+        },
+        "totals": {
+          "physical": 3,
+          "mental": 3,
+          "social": 3,
+          "force": 3,
+          "finesse": 3,
+          "resilience": 3
+        }
+      },
+      "details": {
+        "details": {
+          "characterName": "",
+          "playerName": "",
+          "flaws": "",
+          "merits": "",
+          "languages": "",
+          "breeding": {
+            "fivePoints": "",
+            "threePoints": "",
+            "twoPoints": ""
+          },
+          "mindset": "",
+          "fields": {
+            "primary": "",
+            "secondary": "",
+            "tertiary": ""
+          }
+        }
+      },
+      "skills": {
+        "skills": {
+          "combat": {
+            "heavyWeapons": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "explosiveOrdinance": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "grenadeThrowing": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "machineGunner": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "meleeCombat": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "pistols": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "rifles": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "submachineGuns": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "unarmedCombat": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            }
+          },
+          "general": {
+            "athletics": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "climb": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "concealmentCamouflage": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "cryptography": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "endurance": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "firstAid": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "linguistics": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "navigation": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "parachuting": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "radioOperations": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "stalking": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "survival": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "swimming": {
+              "value": 0,
+              "breeding": 0,
+              "commando": 1,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            }
+          },
+          "custom": {
+            "custom1": {
+              "name": "",
+              "value": 0,
+              "breeding": 0,
+              "commando": 0,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "custom2": {
+              "name": "",
+              "value": 0,
+              "breeding": 0,
+              "commando": 0,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "custom3": {
+              "name": "",
+              "value": 0,
+              "breeding": 0,
+              "commando": 0,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "custom4": {
+              "name": "",
+              "value": 0,
+              "breeding": 0,
+              "commando": 0,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            },
+            "custom5": {
+              "name": "",
+              "value": 0,
+              "breeding": 0,
+              "commando": 0,
+              "primary": 0,
+              "secondary": 0,
+              "tertiary": 0
+            }
+          }
+        }
+      },
+      "resources": {
+        "health": {
+          "value": 10,
+          "max": 10
+        },
+        "stamina": {
+          "value": 10,
+          "max": 10
+        }
+      }
+    },
+    "character": {
+      "templates": ["base", "attributes", "details", "skills", "resources"]
+    },
+    "npc": {
+      "templates": ["base", "attributes", "skills", "resources"]
+    }
+  },
+  "Item": {
+    "types": ["weapon", "equipment", "skill"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "weapon": {
+      "templates": ["base"],
+      "weaponType": "",
+      "damage": "1d6",
+      "range": "",
+      "ammo": {
+        "max": 0,
+        "value": 0
+      }
+    },
+    "equipment": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0
+    },
+    "skill": {
+      "templates": ["base"],
+      "category": "",
+      "specialization": ""
+    }
+  }
+}
