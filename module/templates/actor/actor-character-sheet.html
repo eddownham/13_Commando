@@ -1,0 +1,442 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"/></h1>
+      <div class="resource flexrow">
+        <label for="system.details.playerName" class="resource-label">Player Name: </label>
+        <input type="text" name="system.details.playerName" value="{{system.details.playerName}}" data-dtype="String"/>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="skills">Skills</a>
+    <a class="item" data-tab="equipment">Equipment</a>
+    <a class="item" data-tab="biography">Biography</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      
+      {{!-- Character Details --}}
+      <div class="character-details flexrow">
+        <div class="flex-group-left">
+          <label for="system.details.merits">Merits:</label>
+          <textarea name="system.details.merits" rows="3">{{system.details.merits}}</textarea>
+        </div>
+      </div>
+
+      {{!-- Breeding Section --}}
+      <div class="breeding-section">
+        <h3>Breeding</h3>
+        <div class="breeding-grid flexrow">
+          <div class="breeding-group">
+            <label for="system.details.breeding.fivePoints">5 Points:</label>
+            <select name="system.details.breeding.fivePoints" class="breeding-select" data-field="system.details.breeding.fivePoints">
+              <option value="">Select...</option>
+              <option value="physical" {{#if (eq system.details.breeding.fivePoints "physical")}}selected{{/if}}>Physical</option>
+              <option value="mental" {{#if (eq system.details.breeding.fivePoints "mental")}}selected{{/if}}>Mental</option>
+              <option value="social" {{#if (eq system.details.breeding.fivePoints "social")}}selected{{/if}}>Social</option>
+            </select>
+          </div>
+          <div class="breeding-group">
+            <label for="system.details.breeding.threePoints">3 Points:</label>
+            <select name="system.details.breeding.threePoints" class="breeding-select" data-field="system.details.breeding.threePoints">
+              <option value="">Select...</option>
+              <option value="physical" {{#if (eq system.details.breeding.threePoints "physical")}}selected{{/if}}>Physical</option>
+              <option value="mental" {{#if (eq system.details.breeding.threePoints "mental")}}selected{{/if}}>Mental</option>
+              <option value="social" {{#if (eq system.details.breeding.threePoints "social")}}selected{{/if}}>Social</option>
+            </select>
+          </div>
+          <div class="breeding-group">
+            <label for="system.details.breeding.twoPoints">2 Points:</label>
+            <select name="system.details.breeding.twoPoints" class="breeding-select" data-field="system.details.breeding.twoPoints">
+              <option value="">Select...</option>
+              <option value="physical" {{#if (eq system.details.breeding.twoPoints "physical")}}selected{{/if}}>Physical</option>
+              <option value="mental" {{#if (eq system.details.breeding.twoPoints "mental")}}selected{{/if}}>Mental</option>
+              <option value="social" {{#if (eq system.details.breeding.twoPoints "social")}}selected{{/if}}>Social</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Mindset Section --}}
+      <div class="mindset-section">
+        <h3>Mindset</h3>
+        <div class="mindset-group">
+          <label for="system.details.mindset">Primary Focus:</label>
+          <select name="system.details.mindset" class="mindset-select">
+            <option value="">Select...</option>
+            <option value="force" {{#if (eq system.details.mindset "force")}}selected{{/if}}>Force</option>
+            <option value="finesse" {{#if (eq system.details.mindset "finesse")}}selected{{/if}}>Finesse</option>
+            <option value="resilience" {{#if (eq system.details.mindset "resilience")}}selected{{/if}}>Resilience</option>
+          </select>
+        </div>
+      </div>
+
+      {{!-- Fields Section --}}
+      <div class="fields-section">
+        <h3>Fields</h3>
+        <div class="fields-grid flexrow">
+          <div class="field-group">
+            <label for="system.details.fields.primary">Primary (2 points):</label>
+            <input type="text" name="system.details.fields.primary" value="{{system.details.fields.primary}}"/>
+          </div>
+          <div class="field-group">
+            <label for="system.details.fields.secondary">Secondary (1 point):</label>
+            <input type="text" name="system.details.fields.secondary" value="{{system.details.fields.secondary}}"/>
+          </div>
+          <div class="field-group">
+            <label for="system.details.fields.tertiary">Tertiary (1 point):</label>
+            <input type="text" name="system.details.fields.tertiary" value="{{system.details.fields.tertiary}}"/>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Attributes Grid --}}
+      <div class="attributes-section">
+        <h2>Attributes</h2>
+        <div class="attributes-grid">
+          
+          {{!-- Headers --}}
+          <div class="empty-corner"></div>
+          <div class="column-header">Physical</div>
+          <div class="column-header">Mental</div>
+          <div class="column-header">Social</div>
+          <div class="total-corner">Total</div>
+
+          {{!-- Force Row --}}
+          <div class="row-header">Force</div>
+          <div class="attribute-category">
+            <label for="system.attributes.might.value">Might</label>
+            <input type="number" name="system.attributes.might.value" value="{{system.attributes.might.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.might.value" data-label="Might" 
+                   data-field="system.attributes.might.value" min="0" max="10"/>
+          </div>
+          <div class="attribute-category">
+            <label for="system.attributes.intellect.value">Intellect</label>
+            <input type="number" name="system.attributes.intellect.value" value="{{system.attributes.intellect.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.intellect.value" data-label="Intellect"
+                   data-field="system.attributes.intellect.value" min="0" max="10"/>
+          </div>
+          <div class="attribute-category">
+            <label for="system.attributes.bearing.value">Bearing</label>
+            <input type="number" name="system.attributes.bearing.value" value="{{system.attributes.bearing.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.bearing.value" data-label="Bearing"
+                   data-field="system.attributes.bearing.value" min="0" max="10"/>
+          </div>
+          <div class="row-total">{{system.totals.force}}</div>
+
+          {{!-- Finesse Row --}}
+          <div class="row-header">Finesse</div>
+          <div class="attribute-category">
+            <label for="system.attributes.coordination.value">Coordination</label>
+            <input type="number" name="system.attributes.coordination.value" value="{{system.attributes.coordination.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.coordination.value" data-label="Coordination"
+                   data-field="system.attributes.coordination.value" min="0" max="10"/>
+          </div>
+          <div class="attribute-category">
+            <label for="system.attributes.guile.value">Guile</label>
+            <input type="number" name="system.attributes.guile.value" value="{{system.attributes.guile.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.guile.value" data-label="Guile"
+                   data-field="system.attributes.guile.value" min="0" max="10"/>
+          </div>
+          <div class="attribute-category">
+            <label for="system.attributes.charm.value">Charm</label>
+            <input type="number" name="system.attributes.charm.value" value="{{system.attributes.charm.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.charm.value" data-label="Charm"
+                   data-field="system.attributes.charm.value" min="0" max="10"/>
+          </div>
+          <div class="row-total">{{system.totals.finesse}}</div>
+
+          {{!-- Resilience Row --}}
+          <div class="row-header">Resilience</div>
+          <div class="attribute-category">
+            <label for="system.attributes.endurance.value">Endurance</label>
+            <input type="number" name="system.attributes.endurance.value" value="{{system.attributes.endurance.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.endurance.value" data-label="Endurance"
+                   data-field="system.attributes.endurance.value" min="0" max="10"/>
+          </div>
+          <div class="attribute-category">
+            <label for="system.attributes.guts.value">Guts</label>
+            <input type="number" name="system.attributes.guts.value" value="{{system.attributes.guts.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.guts.value" data-label="Guts"
+                   data-field="system.attributes.guts.value" min="0" max="10"/>
+          </div>
+          <div class="attribute-category">
+            <label for="system.attributes.composure.value">Composure</label>
+            <input type="number" name="system.attributes.composure.value" value="{{system.attributes.composure.value}}" 
+                   class="attribute-input rollable" data-roll="1d20 + @attributes.composure.value" data-label="Composure"
+                   data-field="system.attributes.composure.value" min="0" max="10"/>
+          </div>
+          <div class="row-total">{{system.totals.resilience}}</div>
+        </div>
+
+        {{!-- Totals Section --}}
+        <div class="totals-section flexrow">
+          <div class="total-category">
+            <div class="total-label">Physical Total</div>
+            <div class="total-value">{{system.totals.physical}}</div>
+          </div>
+          <div class="total-category">
+            <div class="total-label">Mental Total</div>
+            <div class="total-value">{{system.totals.mental}}</div>
+          </div>
+          <div class="total-category">
+            <div class="total-label">Social Total</div>
+            <div class="total-value">{{system.totals.social}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Skills Tab --}}
+    <div class="tab skills" data-group="primary" data-tab="skills">
+      
+      {{!-- Skills Navigation --}}
+      <nav class="sheet-tabs tabs" data-group="skills">
+        <a class="item" data-tab="combat-skills">Combat Skills</a>
+        <a class="item" data-tab="general-skills">General Skills</a>
+        <a class="item" data-tab="custom-skills">Custom Skills</a>
+      </nav>
+
+      {{!-- Combat Skills --}}
+      <div class="tab combat-skills" data-group="skills" data-tab="combat-skills">
+        <div class="skills-grid">
+          {{!-- Headers --}}
+          <div class="empty-corner"></div>
+          <div class="column-header">Breeding</div>
+          <div class="column-header">Commando</div>
+          <div class="column-header">{{system.details.fields.primary}}</div>
+          <div class="column-header">{{system.details.fields.secondary}}</div>
+          <div class="column-header">{{system.details.fields.tertiary}}</div>
+          <div class="skills-total-corner">Total</div>
+
+          {{!-- Combat Skills Rows --}}
+          {{#each system.skills.combat as |skill key|}}
+          <div class="skills-row-header">{{skillName key}}</div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.combat.{{key}}.breeding" value="{{skill.breeding}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.combat.{{key}}.commando" value="{{skill.commando}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.combat.{{key}}.primary" value="{{skill.primary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.combat.{{key}}.secondary" value="{{skill.secondary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.combat.{{key}}.tertiary" value="{{skill.tertiary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-row-total rollable" data-roll="1d20 + {{skill.value}}" data-label="{{skillName key}}">{{skill.value}}</div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{!-- General Skills --}}
+      <div class="tab general-skills" data-group="skills" data-tab="general-skills">
+        <div class="skills-grid">
+          {{!-- Headers --}}
+          <div class="empty-corner"></div>
+          <div class="column-header">Breeding</div>
+          <div class="column-header">Commando</div>
+          <div class="column-header">{{system.details.fields.primary}}</div>
+          <div class="column-header">{{system.details.fields.secondary}}</div>
+          <div class="column-header">{{system.details.fields.tertiary}}</div>
+          <div class="skills-total-corner">Total</div>
+
+          {{!-- General Skills Rows --}}
+          {{#each system.skills.general as |skill key|}}
+          <div class="skills-row-header">{{skillName key}}</div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.general.{{key}}.breeding" value="{{skill.breeding}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.general.{{key}}.commando" value="{{skill.commando}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.general.{{key}}.primary" value="{{skill.primary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.general.{{key}}.secondary" value="{{skill.secondary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.general.{{key}}.tertiary" value="{{skill.tertiary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-row-total rollable" data-roll="1d20 + {{skill.value}}" data-label="{{skillName key}}">{{skill.value}}</div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{!-- Custom Skills --}}
+      <div class="tab custom-skills" data-group="skills" data-tab="custom-skills">
+        <div class="skills-grid">
+          {{!-- Headers --}}
+          <div class="empty-corner"></div>
+          <div class="column-header">Breeding</div>
+          <div class="column-header">Commando</div>
+          <div class="column-header">{{system.details.fields.primary}}</div>
+          <div class="column-header">{{system.details.fields.secondary}}</div>
+          <div class="column-header">{{system.details.fields.tertiary}}</div>
+          <div class="skills-total-corner">Total</div>
+
+          {{!-- Custom Skills Rows --}}
+          {{#each system.skills.custom as |skill key|}}
+          <div class="skills-row-header">
+            <input type="text" name="system.skills.custom.{{key}}.name" value="{{skill.name}}" 
+                   placeholder="Custom Skill {{@index}}" class="custom-skill-name"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.custom.{{key}}.breeding" value="{{skill.breeding}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.custom.{{key}}.commando" value="{{skill.commando}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.custom.{{key}}.primary" value="{{skill.primary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.custom.{{key}}.secondary" value="{{skill.secondary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-category">
+            <input type="number" name="system.skills.custom.{{key}}.tertiary" value="{{skill.tertiary}}" 
+                   class="skills-input" min="0" max="10"/>
+          </div>
+          <div class="skills-row-total rollable" data-roll="1d20 + {{skill.value}}" data-label="{{skill.name}}">{{skill.value}}</div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{!-- Skills Totals --}}
+      <div class="skills-totals">
+        <div class="category-totals-grid flexrow">
+          <div class="category-total-item">
+            <div class="category-total-label">Breeding</div>
+            <div class="category-total-value">{{skillTotals.breeding}}</div>
+          </div>
+          <div class="category-total-item">
+            <div class="category-total-label">Commando</div>
+            <div class="category-total-value">{{skillTotals.commando}}</div>
+          </div>
+          <div class="category-total-item">
+            <div class="category-total-label">{{system.details.fields.primary}}</div>
+            <div class="category-total-value">{{skillTotals.primary}}</div>
+          </div>
+          <div class="category-total-item">
+            <div class="category-total-label">{{system.details.fields.secondary}}</div>
+            <div class="category-total-value">{{skillTotals.secondary}}</div>
+          </div>
+          <div class="category-total-item">
+            <div class="category-total-label">{{system.details.fields.tertiary}}</div>
+            <div class="category-total-value">{{skillTotals.tertiary}}</div>
+          </div>
+        </div>
+        
+        <div class="skills-checksum">
+          <span class="skills-checksum-title">Total Skills Points</span>
+          <span class="skills-checksum-value">{{skillTotals.total}} / 43</span>
+          <span class="skills-checksum-status">
+            {{#if (eq skillTotals.total 43)}}✓ VALID{{else if (gt skillTotals.total 43)}}⚠ OVER{{else}}⚠ UNDER{{/if}}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Equipment Tab --}}
+    <div class="tab equipment" data-group="primary" data-tab="equipment">
+      
+      {{!-- Weapons --}}
+      <div class="items-section">
+        <div class="items-header">
+          <h3 class="items-title">Weapons</h3>
+          <a class="item-control item-create" data-type="weapon" title="Create weapon">
+            <i class="fas fa-plus"></i> Add Weapon
+          </a>
+        </div>
+        
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-image"></div>
+            <div class="item-name">Name</div>
+            <div class="item-controls"></div>
+          </li>
+          {{#each weapons as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+
+      {{!-- Equipment --}}
+      <div class="items-section">
+        <div class="items-header">
+          <h3 class="items-title">Equipment</h3>
+          <a class="item-control item-create" data-type="equipment" title="Create equipment">
+            <i class="fas fa-plus"></i> Add Equipment
+          </a>
+        </div>
+        
+        <ol class="items-list">
+          <li class="item flexrow item-header">
+            <div class="item-image"></div>
+            <div class="item-name">Name</div>
+            <div class="item-controls"></div>
+          </li>
+          {{#each equipment as |item id|}}
+          <li class="item flexrow" data-item-id="{{item._id}}">
+            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="biography">
+      {{editor content=system.biography target="system.biography" button=true owner=owner editable=editable}}
+    </div>
+
+  </section>
+</form>.flaws">Flaws:</label>
+          <textarea name="system.details.flaws" rows="3">{{system.details.flaws}}</textarea>
+          
+          <label for="system.details.languages">Languages:</label>
+          <input type="text" name="system.details.languages" value="{{system.details.languages}}"/>
+        </div>
+        <div class="flex-group-right">
+          <label for="system.details
